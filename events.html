@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<title>Vortex 17 | Events</title>		
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Hind:400,600,700" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700i,800" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="js/slider.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/vortex_login_style.css">
+    
+    <style type="text/css">
+        body{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: "Hind", sans-serif;
+    margin: 0px;
+    }
+
+    canvas{
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+button{
+    padding: 10px;
+    font-family: "Montserrat",sans-serif;
+    border:2px solid #333;
+    background-color: transparent;
+
+}
+.event a:focus,.event a:hover{
+    text-decoration: none;
+    color: #333;
+}
+.event a {
+  text-decoration: none;
+  position: relative;
+  color: #333;
+  font-family: "Montserrat",sans-serif;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+.event a:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  border-bottom: 4px solid #333;
+  transition: 0.4s;
+}
+.event a:hover:after {
+  width: 100%;
+}
+
+#page-content-wrapper > div > div > div {
+    margin-bottom: 70px;
+}
+
+h4{
+    text-align: center;
+    margin-top: 70px;
+    font-size: 10px;
+}
+
+    </style>
+</head>
+
+<body data-gr-c-s-loaded="true">
+<div id="wrapper">
+ <div class="overlay"></div>
+ <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                 <li>
+                    <a href="events.html">Events</a>
+                </li>
+                <li>
+                    <a href="workshop.html">Workshop</a>
+                </li>
+                <li>
+                    <a href="hospi.html">Hospitality</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact Us</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
+<div id="page-content-wrapper">
+      <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
+            <span class="hamb-top"></span>
+            <span class="hamb-middle"></span>
+            <span class="hamb-bottom"></span>
+      </button>
+    <script src="js/three.min.js"></script>
+    <script>
+        var SEPARATION = 100,
+            AMOUNTX = 100,
+            AMOUNTY = 70;
+
+        var container;
+        var camera, scene, renderer;
+
+        var particles, particle, count = 0;
+
+        var mouseX = 85,
+            mouseY = -342;
+
+        var windowHalfX = window.innerWidth / 2;
+        var windowHalfY = window.innerHeight / 2;
+
+        init();
+        animate();
+
+        function init() {
+
+            container = document.createElement('div');
+            document.body.appendChild(container);
+
+            camera = new THREE.PerspectiveCamera(120, window.innerWidth / window.innerHeight, 1, 10000);
+            camera.position.z = 1000;
+
+            scene = new THREE.Scene();
+
+            particles = new Array();
+
+            var PI2 = Math.PI * 2;
+            var material = new THREE.ParticleCanvasMaterial({
+
+                color: 0xe1e1e1,
+                program: function(context) {
+
+                    context.beginPath();
+                    context.arc(0, 0, 1, 0, PI2, true);
+                    context.fill();
+
+                }
+
+            });
+
+            var i = 0;
+
+            for (var ix = 0; ix < AMOUNTX; ix++) {
+
+                for (var iy = 0; iy < AMOUNTY; iy++) {
+
+                    particle = particles[i++] = new THREE.Particle(material);
+                    particle.position.x = ix * SEPARATION - ((AMOUNTX * SEPARATION) / 2);
+                    particle.position.z = iy * SEPARATION - ((AMOUNTY * SEPARATION) / 2);
+                    scene.add(particle);
+
+                }
+
+            }
+
+            renderer = new THREE.CanvasRenderer();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            container.appendChild(renderer.domElement);
+
+            document.addEventListener('mousemove', onDocumentMouseMove, false);
+            document.addEventListener('touchstart', onDocumentTouchStart, false);
+            document.addEventListener('touchmove', onDocumentTouchMove, false);
+
+            //
+
+            window.addEventListener('resize', onWindowResize, false);
+
+        }
+
+        function onWindowResize() {
+
+            windowHalfX = window.innerWidth / 2;
+            windowHalfY = window.innerHeight / 2;
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+
+        }
+
+        //
+
+        function onDocumentMouseMove(event) {
+
+            mouseX = event.clientX - windowHalfX;
+            mouseY = event.clientY - windowHalfY;
+
+        }
+
+        function onDocumentTouchStart(event) {
+
+            if (event.touches.length === 1) {
+
+                event.preventDefault();
+
+                mouseX = event.touches[0].pageX - windowHalfX;
+                mouseY = event.touches[0].pageY - windowHalfY;
+
+            }
+
+        }
+
+        function onDocumentTouchMove(event) {
+
+            if (event.touches.length === 1) {
+
+                event.preventDefault();
+
+                mouseX = event.touches[0].pageX - windowHalfX;
+                mouseY = event.touches[0].pageY - windowHalfY;
+
+            }
+
+        }
+
+        //
+
+        function animate() {
+
+            requestAnimationFrame(animate);
+
+            render();
+
+
+        }
+
+        function render() {
+
+            camera.position.x += (mouseX - camera.position.x) * .05;
+            camera.position.y += (-mouseY - camera.position.y) * .05;
+            camera.lookAt(scene.position);
+
+            var i = 0;
+
+            for (var ix = 0; ix < AMOUNTX; ix++) {
+
+                for (var iy = 0; iy < AMOUNTY; iy++) {
+
+                    particle = particles[i++];
+                    particle.position.y = (Math.sin((ix + count) * 0.3) * 50) + (Math.sin((iy + count) * 0.5) * 50);
+                    particle.scale.x = particle.scale.y = (Math.sin((ix + count) * 0.3) + 1) * 2 + (Math.sin((iy + count) * 0.5) + 1) * 2;
+
+                }
+
+            }
+
+            renderer.render(scene, camera);
+
+            count += 0.1;
+
+        }
+    </script>
+
+    <div class="container event">
+        <h3>EVENTS</h3>
+        <div class="col-md-12">
+            <div class="col-md-3">
+                <a href="#">CLUELESS</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">CLUELESS</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">CLUELESS</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">CLUELESS</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">CLUELESS</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">CLUELESS</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">CLUELESS</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">CLUELESS</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">CLUELESS</a>
+            </div>
+            <div class="col-md-3">
+                <a href="#">CLUELESS</a>
+            </div>
+        </div>
+
+    	
+    </div>
+<h4>For queries contact <u>cseanitt@gmail.com</u></h4>
+
+
+
+
+
+
+
+
+
+</div>
+</div>
+
+
+
+
+<script>    
+
+//slider
+
+  $(function() {
+    $(".rslides").responsiveSlides();
+  });
+
+//side nav
+$(document).ready(function(){       
+            var scroll_pos = 0;
+            $(document).scroll(function() { 
+                scroll_pos = $(this).scrollTop();
+                if(scroll_pos > 350) {
+                    $(".hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom").css('background-color', '#333');
+                } else {
+                    $(".hamburger.is-closed .hamb-top, .hamburger.is-closed .hamb-middle, .hamburger.is-closed .hamb-bottom").css('background-color', 'white');
+                }
+            });
+        });
+
+
+
+$(document).ready(function () {
+  var trigger = $('.hamburger'),
+      overlay = $('.overlay'),
+     isClosed = false;
+
+    trigger.click(function () {
+      hamburger_cross();      
+    });
+
+    function hamburger_cross() {
+
+      if (isClosed == true) {          
+        overlay.hide();
+        trigger.removeClass('is-open');
+        trigger.addClass('is-closed');
+        isClosed = false;
+      } else {   
+        overlay.show();
+        trigger.removeClass('is-closed');
+        trigger.addClass('is-open');
+        isClosed = true;
+      }
+  }
+  
+  $('[data-toggle="offcanvas"]').click(function () {
+        $('#wrapper').toggleClass('toggled');
+  });  
+});
+</script>
+
+</body></html>
