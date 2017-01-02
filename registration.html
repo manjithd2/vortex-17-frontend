@@ -2,12 +2,14 @@
 <html>
 <head>
 	<title>Vortex 17 | Register</title>
-	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<link href="https://fonts.googleapis.com/css?family=Hind:400,600,700" rel="stylesheet">
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="js/slider.js"></script>
+    <!-- <script src="js/slider.js"></script> -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <link rel="stylesheet" type="text/css" href="css/vortex_login_style.css">
 
     <style type="text/css">
@@ -57,7 +59,87 @@
       <div class="container">
       	<div class="registration-form">
       		<h3>Registration Form</h3>
-			<form>
+			       <form data-toggle="validator" role="form">
+                  <div class="form-group">
+                    <label for="pname" class="control-label">Name</label>
+                    <input type="text" class="form-control" id="pname" placeholder="Name as in certificate" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="college" class="control-label">College</label>
+                    <input type="text" class="form-control" id="college" placeholder="College as in certificate" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="degree" class="control-label">Degree</label>
+                    <input type="text" class="form-control" id="degree" placeholder="B.Tech, B.E etc"  required>
+                  </div>
+                  <div class="form-group">
+                    <label for="year" class="control-label">Year</label>
+                    <input type="text" class="form-control" id="year" 
+                    placeholder="1st, 2nd, 3rd, 4th" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="phone" class="control-label">Phone Number</label>
+                    <input type="text" data-minlength="10" data-maxlength="10" class="form-control" id="phone" data-error="The number is invalid"                     required>
+                     <div class="help-block with-errors"></div>
+                  </div>
+                  <div class="form-group">
+                    <label for="email" class="control-label">Email</label>
+                    <input type="email" class="form-control" id="email" placeholder="Email" data-error="The email address is invalid" required>
+                    <div class="help-block with-errors"></div>
+                  </div>
+                 <!--  <div class="form-group">
+                    <label for="inputPassword" class="control-label">Password</label>
+                    <div class="form-inline row">
+                      <div class="form-group col-sm-6">
+                        <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
+                        <div class="help-block">Minimum of 6 characters</div>
+                      </div>
+                      <div class="form-group col-sm-6">
+                        <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
+                        <div class="help-block with-errors"></div>
+                      </div>
+                    </div>
+                  </div> -->
+                  <div class="form-group">
+                    <label for="address" class="control-label">Address</label>
+                    <textarea type="text" data-minlength="10" data-maxlength="10" class="form-control" id="address" 
+                     required></textarea>
+                  </div>
+                  <div class="form-group">
+                    <div class="checkbox">
+                      <label>
+                        <input type="checkbox" name="ambassador" id="isAmbassador" >
+                        Do you want to be a Campus Ambassador
+                      </label>
+                      <div id="why-reasons" hidden="true">
+                        <p style="text-align: left; margin-top: 20px;">
+                          <lable>Why do you want the job?</lable>
+                        </p>
+                        <textarea  class="form-control" id="reasons" name="whyAmbassador" data-error="Please fill your reason." required></textarea>
+                      </div>
+                      <div class="help-block with-errors"></div>
+                      <script>
+                        document.getElementById("isAmbassador").addEventListener('change', function() {
+                        if (this.checked) {
+                          document.getElementById("why-reasons").hidden = false;
+                        } else {
+                          document.getElementById("why-reasons").hidden = true;
+                          document.getElementById("whyAmbassador").innerHTML = "";
+                        };
+                      })
+                      </script>
+                    </div>
+                  </div>
+
+                  <div class="g-recaptcha" data-sitekey="your_site_key" style="margin-bottom: 30px;"></div>
+
+
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Register</button>
+                  </div>
+                </form>
+
+      <!-- <form>
 			  <div class="form-group">
 			    <label>Name</label>
 			    <input type="text" class="form-control" id="name" placeholder="Name as in certificate">
@@ -110,9 +192,9 @@
 				})
 
 			  </script>
-			</form>
-			<button type="submit" class="btn btn-primary">Register</button>
-		</div>
+			</form> 
+			     <button type="submit" class="btn btn-primary">Register</button>-->
+		    </div>
       </div>
 
 
