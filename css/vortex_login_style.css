@@ -97,6 +97,83 @@ p{
   font-family: "Hind";
 }
 
+
+
+
+       body{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    font-family: "Hind", sans-serif;
+    margin: 0px;
+    }
+
+    canvas{
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+button{
+    padding: 10px;
+    font-family: "Montserrat",sans-serif;
+    border:2px solid #333;
+    background-color: transparent;
+
+}
+.event a:focus,.event a:hover{
+    text-decoration: none;
+    color: #333;
+}
+.event a {
+  text-decoration: none;
+  position: relative;
+  color: #333;
+  font-family: "Montserrat",sans-serif;
+  font-size: 30px;
+  letter-spacing: 5px;
+}
+
+.event a:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  border-bottom: 4px solid #333;
+  transition: 0.4s;
+}
+.event a:hover:after {
+  width: 100%;
+}
+
+#page-content-wrapper > div > div > div {
+    margin-bottom: 70px;
+}
+
+h4{
+    text-align: center;
+    margin-top: 70px;
+    font-size: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #wrapper {
     padding-left: 0;
     -webkit-transition: all 0.5s ease;
