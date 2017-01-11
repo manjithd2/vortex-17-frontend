@@ -1,4 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Vortex 17 | Register</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Hind:400,700" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- <script src="js/slider.js"></script> -->
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <link rel="stylesheet" type="text/css" href="css/vortex_login_style.css">
 
+    <style type="text/css">
+    body{
+    	background-image: white;
+    }
+
+    </style>
+
+
+</head>
+
+<body data-gr-c-s-loaded="true">
+<div id="wrapper">
+ <div class="overlay"></div>
+ <!-- Sidebar -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+            <ul class="nav sidebar-nav">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                 <li>
+                    <a href="events.html">Events</a>
+                </li>
+                <li>
+                    <a href="workshop.html">Workshop</a>
+                </li>
+                <li>
+                    <a href="hospi.html">Hospitality</a>
+                </li>
+                <li>
+                    <a href="contact.html">Contact Us</a>
+                </li>
+                <li>
+                    <a href="login.html">Login</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- /#sidebar-wrapper -->
 <div id="page-content-wrapper">
       <button type="button" class="hamburger is-closed" data-toggle="offcanvas">
             <span class="hamb-top"></span>
@@ -12,65 +62,60 @@
 			       <form data-toggle="validator" role="form">
                   <div class="form-group">
                     <label for="pname" class="control-label">Name</label>
-                    <input type="text" class="form-control" name="panme" id="pname" placeholder="Name as in certificate" 
-                    data-error="This field is required" required>
-                    <div class="help-block with-errors"></div>
+                    <input type="text" class="form-control" id="pname" placeholder="Name as in certificate" required>
                   </div>
                   <div class="form-group">
                     <label for="college" class="control-label">College</label>
-                    <input type="text" class="form-control" name="college" id="college" placeholder="College as in certificate" data-error="This field is required" required>
-                    <div class="help-block with-errors"></div>
+                    <input type="text" class="form-control" id="college" placeholder="College as in certificate" required>
                   </div>
                   <div class="form-group">
                     <label for="degree" class="control-label">Degree</label>
-                    <input type="text" class="form-control" name="degree" id="degree" placeholder="B.Tech, B.E etc" data-error="This field is required" required>
-                    <div class="help-block with-errors"></div>
+                    <input type="text" class="form-control" id="degree" placeholder="B.Tech, B.E etc"  required>
                   </div>
                   <div class="form-group">
                     <label for="year" class="control-label">Year</label>
-                    <input type="text" class="form-control" name="year" id="year" 
-                    placeholder="1st, 2nd, 3rd, 4th" data-error="This field is required" required>
-                    <div class="help-block with-errors"></div>
+                    <input type="text" class="form-control" id="year" 
+                    placeholder="1st, 2nd, 3rd, 4th" required>
                   </div>
                   <div class="form-group">
                     <label for="phone" class="control-label">Phone Number</label>
-                    <input type="text" data-minlength="10" data-maxlength="10" class="form-control" id="phone" data-error="The number is invalid"                name="phone"     required>
+                    <input type="text" data-minlength="10" data-maxlength="10" class="form-control" id="phone" data-error="The number is invalid"                     required>
                      <div class="help-block with-errors"></div>
                   </div>
                   <div class="form-group">
                     <label for="email" class="control-label">Email</label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-error="The email address is invalid" required>
+                    <input type="email" class="form-control" id="email" placeholder="Email" data-error="The email address is invalid" required>
                     <div class="help-block with-errors"></div>
                   </div>
-                  <div class="form-group">
+                 <!--  <div class="form-group">
                     <label for="inputPassword" class="control-label">Password</label>
                     <div class="form-inline row">
                       <div class="form-group col-sm-6">
-                        <input type="password" data-minlength="6" class="form-control" name="password" id="inputPassword" placeholder="Password" required>
+                        <input type="password" data-minlength="6" class="form-control" id="inputPassword" placeholder="Password" required>
                         <div class="help-block">Minimum of 6 characters</div>
                       </div>
-<!--                       <div class="form-group col-sm-6">
-                        <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" name="password" placeholder="Confirm" required>
+                      <div class="form-group col-sm-6">
+                        <input type="password" class="form-control" id="inputPasswordConfirm" data-match="#inputPassword" data-match-error="Whoops, these don't match" placeholder="Confirm" required>
                         <div class="help-block with-errors"></div>
-                      </div> -->
+                      </div>
                     </div>
-                  </div>
+                  </div> -->
                   <div class="form-group">
                     <label for="address" class="control-label">Address</label>
-                    <textarea type="text" data-minlength="10" data-maxlength="10" class="form-control" name="address" id="address"  data-error="This field is required"  required></textarea>
-                     <div class="help-block with-errors"></div>
+                    <textarea type="text" data-minlength="10" data-maxlength="10" class="form-control" id="address" 
+                     required></textarea>
                   </div>
                   <div class="form-group">
                     <div class="checkbox">
                       <label>
-                        <input type="checkbox" name="isAmbassador" id="isAmbassador" >
+                        <input type="checkbox" name="ambassador" id="isAmbassador" >
                         Do you want to be a Campus Ambassador
                       </label>
                       <div id="why-reasons" hidden="true">
                         <p style="text-align: left; margin-top: 20px;">
                           <lable>Why do you want the job?</lable>
                         </p>
-                        <textarea  class="form-control" id="reasons" name="whyAmbassador" data-error="Please fill your reason."></textarea>
+                        <textarea  class="form-control" id="reasons" name="whyAmbassador" data-error="Please fill your reason." required></textarea>
                       </div>
                       <div class="help-block with-errors"></div>
                       <script>
@@ -86,15 +131,69 @@
                     </div>
                   </div>
 
-<!--                   <div class="g-recaptcha" data-sitekey="your_site_key" style="margin-bottom: 30px;"></div>
- -->
+                  <div class="g-recaptcha" data-sitekey="your_site_key" style="margin-bottom: 30px;"></div>
+
 
                   <div class="form-group">
-                    <button type="submit" class="btn btn-primary" onclick="register()">Register</button>
+                    <button type="submit" class="btn btn-primary">Register</button>
                   </div>
                 </form>
-                <div id="test"></div>
 
+      <!-- <form>
+			  <div class="form-group">
+			    <label>Name</label>
+			    <input type="text" class="form-control" id="name" placeholder="Name as in certificate">
+			  </div>
+			  <div class="form-group">
+			    <label>College</label>
+			    <input type="text" class="form-control" id="college" placeholder="College as in certificate">
+			  </div>
+			  <div class="form-group">
+			    <label>Degree</label>
+			    <input type="text" class="form-control" id="degree">
+			  </div>
+			  <div class="form-group">
+			    <label>Year</label>
+			    <input type="text" class="form-control" id="Year">
+			  </div>
+			  <div class="form-group">
+			    <label>Phone Number</label>
+			    <input type="text" class="form-control" id="Phone">
+			  </div>
+			  <div class="form-group">
+			    <label>Email</label>
+			    <input type="text" class="form-control" id="Email">
+			  </div>
+			  <div class="form-group">
+			    <label>Password</label>
+			    <input type="password" class="form-control" id="password">
+			  </div>
+			  <div class="form-group">
+			    <label>Address</label>
+			    <input type="text" class="form-control" id="Address">
+			  </div>
+			  <div class="form-group" style="margin-top: 20px;">
+			    <input type="checkbox" name="ambassador" id="ambassador"><label style="margin-left:15px;">Do you want to become a Campus Ambassador?</label>
+					<div id="why-reasons" hidden="true">
+					  <p>
+					    <lable>Why do you want the job?</lable>
+					  </p>
+					  <textarea  class="form-control" id="reasons" name="reasons"></textarea>
+					</div>
+			  </div>
+			  <script>
+			  	document.getElementById("ambassador").addEventListener('change', function() {
+				  if (this.checked) {
+				    document.getElementById("why-reasons").hidden = false;
+				  } else {
+				    document.getElementById("why-reasons").hidden = true;
+				    document.getElementById("reasons").innerHTML = "";
+				  };
+				})
+
+			  </script>
+			</form> 
+			     <button type="submit" class="btn btn-primary">Register</button>-->
 		    </div>
       </div>
 
@@ -109,37 +208,11 @@
 
 <script>    
 
-$('body').append('<link rel="stylesheet" type="text/css" href="css/vortex_login_style.css">')
+//slider
 
-
-function  register()
-{
-  var data = $('form').serialize();
-
-  $.ajax({
-
-    type  : 'POST',
-    url   : 'http://4c5a4e64.ngrok.io/register',
-    data  :  data,
-    beforeSend: function()
-    {
-      $("#test").html('Registering..');
-    },
-    success :function(statusText,xhr)
-      {
-        if(xhr.status == 200){
-          window.location.href = "/";
-        }
-
-        },
-    error : function(xhr, statusText)
-        {
-          alert('Check your details');
-        }
-      
+  $(function() {
+    $(".rslides").responsiveSlides();
   });
-}
-
 
 //side nav
 // $(document).ready(function(){       

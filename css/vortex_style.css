@@ -1,5 +1,5 @@
 body{
-    overflow-x: hidden;
+    overflow: hidden;
     overflow-y: scroll;
     font-family: "Hind", sans-serif;
 }
@@ -453,9 +453,35 @@ section p{
     position: relative;
 }
 .overlay{
-    position: absolute;
+    /*position: absolute;*/
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
+}
+
+.event a:focus,.event a:hover{
+    text-decoration: none;
+    color: #333;
+}
+.event a {
+  text-decoration: none;
+  position: relative;
+  color: #333;
+  font-family: "Montserrat",sans-serif;
+  font-size: 25px;
+  letter-spacing: 5px;
+}
+
+.event a:after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  border-bottom: 4px solid #333;
+  transition: 0.4s;
+}
+.event a:hover:after {
+  width: 100%;
 }
