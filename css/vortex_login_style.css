@@ -414,3 +414,13 @@ p{
 .event a{
   font-size: 15px;
 }
+
+.format ul{
+  text-align: left;
+    color: #828282;
+font-size: 20px;
+}
+
+.format h4{
+  font-weight: bold;
+}
